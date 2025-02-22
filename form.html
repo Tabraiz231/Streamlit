@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00bcd4, #8e44ad);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .form-container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-field {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .input-field input,
+        .input-field textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            background: transparent;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .input-field input:focus,
+        .input-field textarea:focus {
+            border-color: #00bcd4;
+        }
+
+        .input-field label {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
+            color: #bbb;
+        }
+
+        .input-field input:focus + label,
+        .input-field textarea:focus + label,
+        .input-field input:not(:placeholder-shown) + label,
+        .input-field textarea:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 10px;
+            font-size: 0.8rem;
+            color: #00bcd4;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #00bcd4;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8e44ad;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .form-footer a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .form-container {
+                padding: 1rem;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Application Form</h1>
+        <form id="app-form">
+            <!-- Name Input -->
+            <div class="input-field">
+                <input type="text" id="name" required placeholder=" " />
+                <label for="name">Full Name</label>
+            </div>
+
+            <!-- Email Input -->
+            <div class="input-field">
+                <input type="email" id="email" required placeholder=" " />
+                <label for="email">Email Address</label>
+            </div>
+
+            <!-- Phone Number Input -->
+            <div class="input-field">
+                <input type="tel" id="phone" required placeholder=" " />
+                <label for="phone">Phone Number</label>
+            </div>
+
+            <!-- Message/Description Textarea -->
+            <div class="input-field">
+                <textarea id="message" rows="5" required placeholder=" "></textarea>
+                <label for="message">Why should we hire you?</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Application</button>
+        </form>
+
+        <div class="form-footer">
+            <p>Need help? <a href="#">Contact Support</a></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for form submission handling
+        document.getElementById('app-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            if(name && email && phone && message) {
+                alert('Thank you for your submission!');
+            } else {
+                alert('Please fill out all fields.');
+            }
+
+            // Reset the form after submission
+            document.getElementById('app-form').reset();
+        });
+    </script>
+    
+</body>
+</html>
